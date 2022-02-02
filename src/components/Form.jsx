@@ -18,7 +18,7 @@ export default class Form extends Component {
       onInputChange,
       onSaveButtonClick } = this.props;
     return (
-      <>
+      <section>
         <h2>Adicionar nova carta</h2>
         <form>
           <label htmlFor="cardName">
@@ -112,7 +112,7 @@ export default class Form extends Component {
             Salvar
           </button>
         </form>
-      </>
+      </section>
     );
   }
 }
