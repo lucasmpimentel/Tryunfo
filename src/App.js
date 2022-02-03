@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
+import isSaveButtonValid from './components/saveButtonValidation';
 import './styles/App.css';
 
 class App extends React.Component {
@@ -19,7 +20,11 @@ class App extends React.Component {
   onInputChange = ({ target }) => {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    this.setState({ [name]: value });
+    this.setState(() => ({ [name]: value }), () => {
+      this.setState((prevState) => (
+        { isSaveButtonDisabled: !isSaveButtonValid({ ...prevState }) }
+      ));
+    });
   }
 
   handleSaveButton = () => {
