@@ -29,6 +29,14 @@ class App extends React.Component {
     });
   }
 
+  cardTrunfoTrue = () => {
+    const { myDeck } = this.state;
+    const checkTrunfo = myDeck.some((item) => item.cardTrunfo === true);
+    if (checkTrunfo) {
+      return this.setState({ hasTrunfo: true });
+    }
+  }
+
   handleSaveButton = (event) => {
     event.preventDefault();
     const {
@@ -40,9 +48,10 @@ class App extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
+      myDeck,
     } = this.state;
-    this.setState((prevState) => (
-      { myDeck: [...prevState.myDeck, {
+    this.setState(() => (
+      { myDeck: [...myDeck, {
         cardName,
         cardDescription,
         cardAttr1,
@@ -52,6 +61,7 @@ class App extends React.Component {
         cardRare,
         cardTrunfo,
       }] }), () => {
+      this.cardTrunfoTrue();
       this.setState({
         cardName: '',
         cardDescription: '',
