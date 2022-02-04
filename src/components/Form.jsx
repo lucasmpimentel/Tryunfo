@@ -13,14 +13,14 @@ export default class Form extends Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      // hasTrunfo,
+      hasTrunfo,
       isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick } = this.props;
     return (
       <section>
         <h2>Adicionar nova carta</h2>
-        <form>
+        <form onSubmit={ onSaveButtonClick }>
           <label htmlFor="cardName">
             Nome
             <input
@@ -107,7 +107,6 @@ export default class Form extends Component {
             data-testid="save-button"
             type="submit"
             disabled={ isSaveButtonDisabled }
-            onClick={ onSaveButtonClick }
           >
             Salvar
           </button>
