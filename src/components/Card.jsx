@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 export default class Card extends React.Component {
   render() {
     const {
+      key,
       cardName,
       cardDescription,
       cardAttr1,
@@ -17,7 +18,7 @@ export default class Card extends React.Component {
     return (
       <section className="card-preview">
         <h2>Pré-visualização</h2>
-        <h3 data-testid="name-card">{ cardName }</h3>
+        <h3 key={ key } data-testid="name-card">{ cardName }</h3>
         <img data-testid="image-card" src={ cardImage } alt={ cardName } />
         <p data-testid="description-card">{ cardDescription }</p>
         <div className="attributes-container">
@@ -35,6 +36,7 @@ export default class Card extends React.Component {
 }
 
 Card.propTypes = {
+  key: PropTypes.string.isRequired,
   cardName: PropTypes.string.isRequired,
   cardDescription: PropTypes.string.isRequired,
   cardAttr1: PropTypes.string.isRequired,
