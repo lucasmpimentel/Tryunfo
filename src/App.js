@@ -78,10 +78,8 @@ class App extends React.Component {
     const {
       cardName, cardDescription,
       cardAttr1, cardAttr2, cardAttr3,
-      cardImage, cardRare,
-      cardTrunfo,
-      hasTrunfo,
-      isSaveButtonDisabled,
+      cardImage, cardRare, cardTrunfo,
+      hasTrunfo, isSaveButtonDisabled,
       myDeck } = this.state;
 
     return (
